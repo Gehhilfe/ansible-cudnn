@@ -9,12 +9,12 @@
       
     - name: Download CUDA
       get_url: 
-        url="http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/cuda-repo-ubuntu1404_7.5-18_amd64.deb"
-        dest="/tmp/cuda-repo-ubuntu1404_7.5-18_amd64.deb"
+        url="http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/cuda-repo-ubuntu1404_8.0.61-1_amd64.deb"
+        dest="/tmp/cuda-repo-ubuntu1404_8.0.61-1_amd64.deb"
       when: cuda_installed.rc == 1
 
     - name: Install CUDA
-      apt: deb="/tmp/cuda-repo-ubuntu1404_7.5-18_amd64.deb"
+      apt: deb="/tmp/cuda-repo-ubuntu1404_8.0.61-1_amd64.deb"
       when: cuda_installed.rc == 1
       
     - name: updates a server
@@ -59,12 +59,12 @@
     - name: Download cuDNN
       get_url:
       args:
-        url: http://developer.download.nvidia.com/compute/redist/cudnn/v5.1/cudnn-7.5-linux-x64-v5.1.tgz
-        dest: /tmp/cudnn-7.5-linux-x64-v5.1.tgz
-        checksum: "sha1:193db99581428f6007fe7632bbb8e6c8da9b3c8a"
+        url: https://cloud.teamstimi.de/index.php/s/ENDTMqqWBeqb0HK/download
+        dest: /tmp/cudnn-8.0-linux-x64-v5.1.tgz
+        checksum: "sha1:934ad6d92186b6ebbce1174dd1708d5964cf735d"
 
     - name: untar cuDNN
-      unarchive: src=/tmp/cudnn-7.5-linux-x64-v5.1.tgz dest=/tmp/cudnn-7.5-linux-x64-v5.1 copy=no
+      unarchive: src=/tmp/cudnn-8.0-linux-x64-v5.1.tgz dest=/tmp/cudnn-8.0-linux-x64-v5.1 copy=no
     
     - name: Copy cuDNN headers from /tmp/cudnn-7.5-linux-x64-v5.1
       command: "cp /tmp/cudnn-7.5-linux-x64-v5.1/cuda/include/cudnn.h /usr/local/cuda/include"
