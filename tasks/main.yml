@@ -66,13 +66,13 @@
     - name: untar cuDNN
       unarchive: src=/tmp/cudnn-8.0-linux-x64-v5.1.tgz dest=/tmp/cudnn-8.0-linux-x64-v5.1 copy=no
     
-    - name: Copy cuDNN headers from /tmp/cudnn-7.5-linux-x64-v5.1
-      command: "cp /tmp/cudnn-7.5-linux-x64-v5.1/cuda/include/cudnn.h /usr/local/cuda/include"
+    - name: Copy cuDNN headers from /tmp/cudnn-8.0-linux-x64-v5.1
+      command: "cp /tmp/cudnn-8.0-linux-x64-v5.1/cuda/include/cudnn.h /usr/local/cuda/include"
       args:
         creates: /usr/local/cuda/include/cudnn.h
       
-    - name: Copy cuDNN libs from /tmp/cudnn-7.5-linux-x64-v5.1
-      shell: "cp /tmp/cudnn-7.5-linux-x64-v5.1/cuda/lib64/libcudnn* /usr/local/cuda/lib64/"
+    - name: Copy cuDNN libs from /tmp/cudnn-8.0-linux-x64-v5.1
+      shell: "cp /tmp/cudnn-8.0-linux-x64-v5.1/cuda/lib64/libcudnn* /usr/local/cuda/lib64/"
       args:
         creates: /usr/local/cuda/lib64/libcudnn.so.5
       
